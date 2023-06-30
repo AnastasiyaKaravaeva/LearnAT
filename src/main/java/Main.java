@@ -31,9 +31,9 @@ public class Main {
 
     /**
      * Выполняет операцию над двумя числами в зависимости от переданного оператора.
-     * @param operator   оператор (+, -, *, /, !)
-     * @param numberOne  первое число
-     * @param numberTwo  второе число
+     * @param operator оператор (+, -, *, /, !)
+     * @param numberOne первое число
+     * @param numberTwo второе число
      * @return результат операции
      */
     private static double calculate(char operator, int numberOne, int numberTwo) {
