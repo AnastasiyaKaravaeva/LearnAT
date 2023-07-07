@@ -135,15 +135,12 @@ class CurrentScore extends Score {
         }
     }
 
-    @Override
+   @Override
     public void addMoney(Money money) {
+        super.addMoney(money);
         double usdValueIn = money.getValue() * money.getCurrency().getUsdCource();
-        double usdValueThis = this.balance.getValue() * this.balance.getCurrency().getUsdCource();
-        if (usdValueThis + usdValueIn <= 1000000) {
-            super.addMoney(money);
-        } else {
-            super.addMoney(new Money((1000000 - usdValueThis) / this.balance.getCurrency().getUsdCource(), "USD"));
-            this.debetScore.addMoney(new Money((usdValueIn - (1000000 - usdValueThis)) / this.balance.getCurrency().getUsdCource(), "USD"));
+        if (usdValueIn > 1000000) {
+            this.debetScore.addMoney(new Money(2000, "USD"));
         }
     }
 }
