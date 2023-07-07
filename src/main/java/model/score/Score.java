@@ -59,6 +59,10 @@ public abstract class Score implements MoneyInterface {
 
     @Override
     public Money getMoney(double balanceLess) {
+        if (balanceLess == 30000) {
+            System.out.println("You are not allowed to withdraw this amount!");
+            return null;
+        }
         if (balanceLess > 30000) {
             throw new IllegalArgumentException("Wrong balance less!");
         }
@@ -92,10 +96,10 @@ class DebetScore extends Score {
 
     @Override
     public boolean getMoneyWithoutLess() {
-        if (this.creditScore.getBalance().getValue() >= -20000) {
+        if (this.creditScore.getBalance().getValue() > -20000) {
             return true;
         } else {
-            System.out.println("Credit score balance limit exceeded!");
+            System.out.println("Debit score operation is not allowed when credit score balance is -20000 or less!");
             return false;
         }
     }
@@ -135,7 +139,7 @@ class CurrentScore extends Score {
         }
     }
 
-   @Override
+    @Override
     public void addMoney(Money money) {
         super.addMoney(money);
         double usdValueIn = money.getValue() * money.getCurrency().getUsdCource();
@@ -144,5 +148,3 @@ class CurrentScore extends Score {
         }
     }
 }
-
-
