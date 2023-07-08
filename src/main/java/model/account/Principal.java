@@ -1,12 +1,13 @@
 package model.account;
 
 public class Principal {
+
     private String firstName;
     private String lastName;
     private String secondName;
     private short age;
-
-    public Principal(String firstName, String lastName, String secondName, short age) {
+    public Principal(String firstName, String lastName, String
+            secondName, short age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.secondName = secondName;

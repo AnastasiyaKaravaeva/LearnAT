@@ -1,6 +1,7 @@
 package model.money;
 
 public class Currency {
+
     private String name;
     private float usdCource;
 
@@ -20,6 +21,4 @@ public class Currency {
     public void setUsdCource(float usdCource) {
         this.usdCource = usdCource;
     }
-
-
 }
